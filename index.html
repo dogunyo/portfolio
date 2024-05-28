@@ -32,6 +32,7 @@
                 <div class="about-col-1">
                     <img src="images/1.jpg">
                 </div>
+                
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
                     <p>I am an ambitious individual with strong organizational and multitasking skills, as well as an aptitude
@@ -45,12 +46,12 @@
                          interest because it is more efficient and faster, it is also a field that I would love to explore. </p>
                     
                     <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p> 
                     </div>
 
-                    <div class="tab-contents active-tab">
+                    <div class="tab-contents active-tab" id="skills">
                         <ul>
                             <li>Networking</li>
                             <li>Communication Skills</li>
@@ -60,13 +61,14 @@
                         </ul>
                     </div>
 
-                    <div class="tab-contents">
+                    <div class="tab-contents" id="experience">
                         <ul>
                             <li><span>2022 - 2023</span><br>Data entry/Data protection at Safaricom</li>
                             <li><span>2021 - 2022</span><br>Call centre at Safaricom shop, Gallerial mall</li>
                         </ul>
                     </div>
-                    <div class="tab-contents">
+
+                    <div class="tab-contents" id="education">
                         <ul>
                             <li><span>2024 - Current</span><br>Software Development at  Institution of Software Technologies </li>
                             <li><span>2023(Sept) - 2024(Jan)</span><br>Certificate of Completion: Introduction to Software Development</li>
@@ -77,5 +79,22 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tablink.classList.remove("active-tab");
+            }
+            
+            event.currentTarget.classList.add("active-link")
+            document.getElementsById(tabname).classList.add("active-tab");
+        }
+    </script>
 </body>
 </html>
