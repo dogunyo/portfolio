@@ -57,7 +57,7 @@
                             <li>Communication Skills</li>
                             <li>Critical Thinking</li>
                             <li>Software Proficiency</li>
-                            <li>HTML/HTML5, CSS/CSS5, Javascript, React.Js, MySQL</li>
+                            <li>HTML5, CSS3, Javascript, React.Js, MySQL</li>
                         </ul>
                     </div>
 
@@ -70,9 +70,9 @@
 
                     <div class="tab-contents" id="education">
                         <ul>
-                            <li><span>2024 - Current</span><br>Software Development at  Institution of Software Technologies </li>
-                            <li><span>2023(Sept) - 2024(Jan)</span><br>Certificate of Completion: Introduction to Software Development</li>
-                            <li><span>2015 - 2018</span><br>St Mary’s school Yala</li>
+                            <li><span>2023 - 2025.</span><br>Institution of Software Technologies. </li>
+                            <li><span>2019 - 2023.</span><br>KCA University    Bachelor of Business information Technology.    </li>
+                            <li><span>2015 - 2018.</span><br>St Mary’s school Yala</li>
                         </ul>
                     </div>
                 </div>
@@ -81,19 +81,34 @@
     </div>
     
     <script>
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link");
-            }
-            for(tabcontent of tabcontents){
-                tablink.classList.remove("active-tab");
-            }
-            
-            event.currentTarget.classList.add("active-link")
-            document.getElementsById(tabname).classList.add("active-tab");
+        // Get all tab links and tab contents
+        var tabLinks = document.getElementsByClassName("tab-links");
+        var tabContents = document.getElementsByClassName("tab-contents");
+    
+        // Loop through each tab link and add click event listener
+        for(var i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].addEventListener("click", function(event) {
+                // Prevent default action to avoid page jump
+                event.preventDefault();
+    
+                // Remove 'active-link' and 'active-tab' classes from all tabs and tab contents
+                for(var j = 0; j < tabLinks.length; j++) {
+                    tabLinks[j].classList.remove("active-link");
+                    tabContents[j].classList.remove("active-tab");
+                }
+    
+                // Add 'active-link' class to clicked tab link
+                this.classList.add("active-link");
+    
+                // Find the tab content element with the ID matching the clicked tab link's innerText
+                var tabContentId = this.innerText.toLowerCase().replace(/\s+/g, '-'); // Convert text to lowercase and replace spaces with hyphens
+                var targetTabContent = document.getElementById(tabContentId);
+    
+                // Add 'active-tab' class to the found tab content
+                if(targetTabContent) {
+                    targetTabContent.classList.add("active-tab");
+                }
+            });
         }
     </script>
 </body>
